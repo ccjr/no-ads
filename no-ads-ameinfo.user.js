@@ -21,6 +21,16 @@ for (var i = 0; i < allDivs.length; i++) {
 // the second to last div is also an add
 removeElement(allDivs[allDivs.length - 2]);
 
+var AllAs, thisA;
+allAs = document.getElementsByTagName('a');
+for (var i = 0; i< allAs.length; i++) {
+  thisA = allAs[i];
+  // remove link to interstitial - http://media.ameinfo.com/interstitials/ad.html?oldURL=http://www.ameinfo.com/196506.html&timer=60000
+  if (thisA.href.indexOf('http://media.ameinfo.com/interstitials/ad.html') == 0) {
+    thisA.href = thisA.href.split("?")[1].split("&")[0].split('=')[1];
+  }
+}
+
 function removeElement(e) {
   //e.parentNode.removeChild(e);
   e.style.display = 'none';
